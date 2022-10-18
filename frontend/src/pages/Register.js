@@ -10,7 +10,7 @@ const Register = () => {
   const [form, setForm] = React.useState({
     firstname: "",
     lastname: "",
-    username:"",
+    username: "",
     email: "",
     password: "",
   });
@@ -43,7 +43,8 @@ const Register = () => {
       name: "username",
       type: "text",
       placeholder: "Pseudo*",
-      errorMessage: "Ton pseudo doit faire entre 3 et 16 caractères et peut contenir des lettres, des chiffres, des tirets et des underscores.",
+      errorMessage:
+        "Ton pseudo doit faire entre 3 et 16 caractères et peut contenir des lettres, des chiffres, des tirets et des underscores.",
       label: "Username",
       pattern: "^[a-zA-Z0-9_-]{3,16}$",
       required: true,
@@ -82,9 +83,14 @@ const Register = () => {
       .register(form)
       .then(({ data }) => {
         navigate("/login");
+        // toast.success("Inscription réussie !", {
+        //   autoClose: 5000,
+        //   transition: "Slide",
+        //   onClose: () => navigate("/login"),
+        // });
       })
       .catch(({ response: { data } }) => {
-        console.log(data);
+        console.log(data.message);
         toast.error(data.errors, {
           margin: "60px",
           position: "top-center",
@@ -96,7 +102,7 @@ const Register = () => {
   return (
     <section id="auth-page">
       <form className="form" onSubmit={handleFormSubmit}>
-      <ToastContainer />
+        <ToastContainer />
         <div className="form-title">
           <h1>Je crée mon compte</h1>
         </div>

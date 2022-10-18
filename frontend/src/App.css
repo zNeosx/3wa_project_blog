@@ -6,6 +6,7 @@
   );
   --white-color: #f1f1f1;
   --black-color: #1b1b1c;
+  --blue-color: #03506F;
   --primary-color: rgb(245, 71, 74);
   --primary-color-hover: rgba(245, 71, 73, 0.9);
 
@@ -190,6 +191,94 @@ section {
   color: var(--primary-color);
 }
 
+.post-card{
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: var(--border-radius);
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+  position: relative;
+  word-break: keep-all;
+}
+
+.post-card h2, .post-card p{
+  color: var(--black-color);
+}
+
+.post-header{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--black-color);
+}
+
+#dashboard .post-header{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  color: var(--black-color);
+
+}
+
+.post-header-user{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.post-header-btn{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.post-header-avatar{
+  width: 35px;
+  height: 35px;
+}
+
+.post-header-username{
+  font-size: var(--text-fs-sm);
+  font-weight: 500;
+}
+
+.post-date{
+  display: block;
+  margin-top: 0.5rem;
+  font-size: var(--text-fs-sm);
+  color: #ccc;
+  font-style: italic;
+}
+
+.btn-delete, .btn-edit{
+  display: flex;
+  width: max-content;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 10px 15px;
+}
+
+.btn-edit{
+  background-color: var(--blue-color);
+}
+.btn-edit:hover{
+  background-color: var(--blue-color);
+}
+
+.post-icons{
+  width: 20px;
+  height: 20px;
+}
+
+.modal-btn{
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
 @media screen and (min-width: 768px) {
   body, .form-input, .btn, a {
     font-size: var(--text-fs-md);
@@ -200,6 +289,27 @@ section {
   }
   h1 {
     font-size: var(--h1-fs-md);
+  }
+
+  #dashboard .post-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+
+  .post-header-btn{
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .post-date{
+    text-align: end;
+  }
+
+  .btn-delete, .btn-edit{
+    padding: 10px;
   }
 }
 

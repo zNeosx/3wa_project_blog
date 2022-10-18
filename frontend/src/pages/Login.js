@@ -2,11 +2,12 @@ import React from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { authRequest } from "../api";
 import FormInput from "../components/FormInput";
-import { genConfig } from 'react-nice-avatar'
+import { genConfig } from "react-nice-avatar";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [error, setError] = React.useState("");
   const [form, setForm] = React.useState({
     email: "",
     password: "",
@@ -42,8 +43,8 @@ const Login = () => {
 
   const generateRandomAvatar = () => {
     const config = genConfig();
-    localStorage.setItem('avatar', JSON.stringify(config));
-  }
+    localStorage.setItem("avatar", JSON.stringify(config));
+  };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -56,17 +57,22 @@ const Login = () => {
         navigate("/");
       })
       .catch(({ response: { data } }) => {
-        setError(data.message);
+        console.log(data.message);
+        toast.error(data.message, {
+          margin: "60px",
+          position: "top-center",
+          autoClose: 5000,
+        });
       });
   };
 
   return (
     <section id="auth-page">
       <form className="form" onSubmit={handleFormSubmit}>
+        <ToastContainer />
         <div className="form-title">
           <h1>Je me connecte</h1>
         </div>
-        <span className="error-message">{error}</span>
         {inputs.map((input) => (
           <FormInput
             key={input.id}

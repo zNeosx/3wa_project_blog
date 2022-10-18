@@ -4,6 +4,7 @@ nav{
   backdrop-filter: blur(15px);
   padding: 1rem;
   height: var(--navbar-height);
+  z-index: 4;
 }
 
 .nav-container{
