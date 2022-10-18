@@ -13,14 +13,12 @@ export const authController = {
       await user.save();
       res.status(200).json(user);
     } catch (errors) {
-      if (errors.keyPattern.username) { 
-        res.status(400).json({errors: 'Ce pseudo est déjà utilisé.'});
-      }
-      else if (errors.keyPattern.email) { 
-        res.status(400).json({errors: 'Cet email est déjà utilisé.'});
-      }
-      else { 
-        res.status(400).json({errors : errors.errors});
+      if (errors.keyPattern.username) {
+        res.status(400).json({ errors: "Ce pseudo est déjà utilisé." });
+      } else if (errors.keyPattern.email) {
+        res.status(400).json({ errors: "Cet email est déjà utilisé." });
+      } else {
+        res.status(400).json({ errors: errors.errors });
       }
       console.log(errors);
     }
@@ -62,7 +60,7 @@ export const authController = {
       }
     } catch (error) {
       console.log(error);
-      res.status(400).json(error);
+      res.status(400).json({ message: error });
     }
   },
 };
