@@ -1,4 +1,4 @@
-# Food Delivery App
+# Blog App
 
 ## PACKAGES
 
@@ -12,6 +12,10 @@
 - sass
 - react-spinners
 - react-jwt
+- react-icons
+- react-modal
+- react-toastify
+- react-nice-avatar
 
 _commande_ : npm i axios sass react-router-dom@6 react-redux react-modal react-query react-spinners react-jwt
 
